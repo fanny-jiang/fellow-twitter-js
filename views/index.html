@@ -15,9 +15,11 @@
 
       <!-- display tweets here -->
       {% for tweet in tweets %}
+      <ul>
+        <li class="twitterName">{{tweet.name}}</li>
         <li>{{tweet.content}}</li>
+      </ul>
       {% endfor %}
-
     </div>
   </div>
 
