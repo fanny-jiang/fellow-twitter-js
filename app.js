@@ -21,12 +21,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 // mount routes from index.js
-// app.use('/', routes)
+app.use('/', routes)
 
 // websockets refactor:
-const server = app.listen('3000')
-const io = socketio.listen(server)
-app.use('/', routes(io))
+// const server = app.listen('3000')
+// const io = socketio.listen(server)
+// app.use('/', routes(io))
 
 // serve static files
 app.use(express.static('public'))
@@ -76,6 +76,6 @@ app.use(function(req, res, next) {
 
 /* ^^^^ Nunjucks HTML render example ^^^^ */
 
-// app.listen(3000, function() {
-//   console.log('listening on port 3000')
-// })
+app.listen(3000, function() {
+  console.log('listening on port 3000')
+})

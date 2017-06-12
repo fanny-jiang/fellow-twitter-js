@@ -4,7 +4,8 @@ const router = express.Router()
 
 const tweetBank = require('../tweetBank')
 
-module.exports = function(io) {
+// websockets refactor
+// module.exports = function(io) {
 
 router.get('/', function (req, res, next) {
   let tweets = tweetBank.list()
@@ -32,9 +33,9 @@ router.post('/tweets', function(req, res, next) {
   res.redirect('/')
 })
 
-// module.exports = router
+module.exports = router
 
 // websockets refactor: comment out line 33, module.exports = router
 
-  return router
-}
+//   return router
+// }
