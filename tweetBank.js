@@ -2,15 +2,8 @@ const _ = require('lodash')
 
 var data = []
 
-let iD = 100
-function randomId() {
-  iD++
-  return iD
-}
-
 function add (name, content) {
-  let tweetId = randomId()
-  data.push({ name: name, content: content, id: tweetId});
+  data.push({ name: name, content: content, id: data.length });
 }
 
 // returns a copy of the data array, prevents mutation of the original data
