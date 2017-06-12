@@ -12,6 +12,7 @@ nunjucks.configure('views', {noCache: true}); // point nunjucks to the proper di
 app.use(morgan('dev'))
 
 app.use('/', routes)
+app.use(express.static('public'))
 
 // app.get('/', function(req, res) {
 //   res.send('welcome')
