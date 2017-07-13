@@ -24,12 +24,13 @@ app.use(bodyParser.json())
 app.use('/', routes)
 
 // websockets refactor:
-// const server = app.listen('3000')
-// const io = socketio.listen(server)
-// app.use('/', routes(io))
+const server = app.listen('3000', () => console.log('listening on port 3000'))
+const io = socketio.listen(server)
 
 // serve static files
 app.use(express.static('public'))
+
+app.use('/', routes(io))
 
 /*
 manual static file routing:
@@ -76,6 +77,7 @@ app.use(function(req, res, next) {
 
 /* ^^^^ Nunjucks HTML render example ^^^^ */
 
-app.listen(3000, function() {
-  console.log('listening on port 3000')
-})
+// app.listen(3000, function() {
+//   console.log('listening on port 3000')
+// })
+
